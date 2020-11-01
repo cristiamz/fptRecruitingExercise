@@ -1,0 +1,27 @@
+<h1 id="tableLabel">Customer List</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!customers"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel">
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Notes</th>
+    </tr>
+  </thead>
+<tbody>
+<tr *ngFor="let customer of customers">
+<td>{{ customer.id }}</td>
+<td>{{ customer.name }}</td>
+<td>{{ customer.phone }}</td>
+<td>{{ customer.email }}</td>
+<td>{{ customer.notes }}</td>
+    </tr>
+  </tbody>
+</table>
+<ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize" (pageChange)="onPageChange(page)"></ngb-pagination>
